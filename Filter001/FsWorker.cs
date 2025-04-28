@@ -12,7 +12,7 @@ namespace Filter001
 
     public class FsWorker
     {
-        static public void AppendString(myFilter delegats)
+        static public void AppendString(string str)
         {
            
 
@@ -20,7 +20,7 @@ namespace Filter001
             {
                 using (StreamWriter sw = new StreamWriter("out.txt", true))
                 {
-                    sw.WriteLine(delegats.ToString());
+                    sw.WriteLine(str);
                 }
                 
             }
