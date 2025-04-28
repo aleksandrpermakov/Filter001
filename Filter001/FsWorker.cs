@@ -7,23 +7,27 @@ using System.Threading.Tasks;
 
 namespace Filter001
 {
-    delegate string myFilter(string text);
+    public delegate string myFilter(string text);
+    public delegate void ToFileDelegat(string text);
+
     public class FsWorker
     {
-        static public bool AppendString(myFilter name)
+        static public void AppendString(myFilter delegats)
         {
-            string str = name;
+           
+
             try
             {
                 using (StreamWriter sw = new StreamWriter("out.txt", true))
                 {
-                    sw.WriteLine(_str);
+                    sw.WriteLine(delegats.ToString());
                 }
-                return true;
+                
             }
             catch
             {
-                return false;
+                Console.WriteLine("Ошибка записи в фаил");
+               
             }
         }
     }

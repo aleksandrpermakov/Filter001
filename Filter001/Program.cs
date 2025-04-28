@@ -15,6 +15,17 @@ namespace Filter001
             Console.WriteLine(Filter.PunctuationFilter(str)); //знаки припенания
             Console.WriteLine(Filter.RussianSymbols(str));
             Console.WriteLine(Filter.LatinCharacters(str));
+            myFilter delegats;
+            delegats = Filter.NumberFilter;
+            delegats += Filter.PunctuationFilter;
+            delegats += Filter.RussianSymbols;
+            delegats += Filter.LatinCharacters;
+            delegats(str);
+            FsWorker.AppendString(delegats);
+            
+            
+            
+
 
         }
     }
