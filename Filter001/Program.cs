@@ -11,17 +11,24 @@ namespace Filter001
         static void Main(string[] args)
         {
             string str = "12 4,Ъ F ГБ .5";
-            Console.WriteLine(Filter.NumberFilter(str)); // цифры
-            FsWorker.AppendString(Filter.NumberFilter(str));
+            ToFileDelegat toFileDelegat;
+            Console.WriteLine(Filter.NumberFilter(str));
+            string filter = Filter.NumberFilter(str);
+            toFileDelegat = FsWorker.AppendString;
+            toFileDelegat(filter);
 
-            Console.WriteLine(Filter.PunctuationFilter(str)); //знаки припенания
-            FsWorker.AppendString(Filter.PunctuationFilter(str));
-
+            Console.WriteLine(Filter.PunctuationFilter(str));
+            filter = Filter.PunctuationFilter(str);
+            toFileDelegat(filter);
+            
             Console.WriteLine(Filter.RussianSymbols(str));
-            FsWorker.AppendString(Filter.RussianSymbols(str));
+            filter = Filter.RussianSymbols(str);
+            toFileDelegat(filter);
 
             Console.WriteLine(Filter.LatinCharacters(str));
-            FsWorker.AppendString(Filter.LatinCharacters(str));
+            filter = Filter.LatinCharacters(str);
+            toFileDelegat(filter);
+
 
             myFilter delegats;
             delegats = Filter.NumberFilter;
